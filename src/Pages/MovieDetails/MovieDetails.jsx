@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'api/apithemoviedb';
 import { BiArrowBack } from 'react-icons/bi';
 import { MovDetails, MovInfo, GoBackBtn } from './MovieDetails.styled';
