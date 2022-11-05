@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+// import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Outlet, Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getMoviesByName } from 'api/apithemoviedb';
 import {
@@ -29,6 +31,7 @@ export const Movies = () => {
   //   console.log(query);
   // }
 
+  console.log(byNameMovies);
   useEffect(() => {
     if (!query) {
       return;
@@ -36,8 +39,10 @@ export const Movies = () => {
     // if (searchParams.get('queryParam') !== '') {
     //   setQuery(searchParams.get('queryParam'));
     // }
+
     getMoviesByName(query).then(({ data }) => setByNameMovies(data.results));
   }, [query, searchParams]);
+
   return (
     <>
       <div>
@@ -52,10 +57,14 @@ export const Movies = () => {
             <li key={film.id}>
               <Link
                 id={film.id}
-                to={`/goit-react-hw-05-movies_2/movies/${film.id}`}
+                to={`/movies/${film.id}`}
                 state={{ from: location }}
               >
-                {film.title}{' '}
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+                  alt={film.title}
+                />
+                {film.title}
               </Link>
             </li>
           ))}
@@ -64,3 +73,38 @@ export const Movies = () => {
     </>
   );
 };
+
+//   <Carousel>
+//     images={byNameMovies.map(film => ({
+//       src: `https://image.tmdb.org/t/p/w500/${film.poster_path}`,
+//     }))}
+//   >
+//     {byNameMovies.map(film => (
+//       <Link
+//         key={film.id}
+//         to={`/goit-react-hw-05-movies_2/movies/${film.id}`}
+//         state={{ from: location }}
+//       ></Link>
+//     ))}
+//   </Carousel>
+// )
+// <Carousel>
+//   {byNameMovies.map(film => (
+//     <div key={film.id}>
+//       <Link
+//         id={film.id}
+//         to={`/goit-react-hw-05-movies_2/movies/${film.id}`}
+//         state={{ from: location }}
+//       >
+//         <a href={`/goit-react-hw-05-movies_2/movies/${film.id}`}>
+//           <img
+//             src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+//             alt={film.title}
+//           />
+//         </a>
+//         {/* {film.title}{' '} */}
+//       </Link>
+//     </div>
+//   ))}
+// </Carousel>
+// )}

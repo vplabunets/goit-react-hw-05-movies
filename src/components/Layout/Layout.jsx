@@ -5,11 +5,9 @@ import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
-    // <LayoutBox>
     <>
       <AppBar />
       <Outlet />
     </>
-    // {/* </LayoutBox> */}
   );
 };

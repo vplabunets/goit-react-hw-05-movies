@@ -11,16 +11,10 @@ export const App = () => {
     <div>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/goit-react-hw-05-movies_2/" element={<Home />} />
-          <Route
-            path="/goit-react-hw-05-movies_2/movies"
-            element={<Movies />}
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
           <Route>
-            <Route
-              path="/goit-react-hw-05-movies_2/movies/:movieId"
-              element={<MovieDetails />}
-            >
+            <Route path="/movies/:movieId" element={<MovieDetails />}>
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
