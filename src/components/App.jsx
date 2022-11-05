@@ -18,7 +18,7 @@ export const App = () => {
           />
           <Route>
             <Route
-              path="goit-react-hw-05-movies_2/movies/:movieId"
+              path="/goit-react-hw-05-movies_2/movies/:movieId"
               element={<MovieDetails />}
             >
               <Route path="cast" element={<Cast />} />

@@ -17,7 +17,7 @@ export const Home = () => {
           <li key={film.id}>
             <Link
               id={film.id}
-              to={`/movies/${film.id}`}
+              to={`/goit-react-hw-05-movies_2/movies/${film.id}`}
               state={{ from: location }}
             >
               {film.title}{' '}
