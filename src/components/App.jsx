@@ -11,17 +11,14 @@ export const App = () => {
     <div>
       <Routes>
         <Route element={<Layout />}>
+          <Route path="/goit-react-hw-05-movies_2/" element={<Home />} />
           <Route
-            path="/vplabunets.github.io/goit-react-hw-05-movies_2"
-            element={<Home />}
-          />
-          <Route
-            path="/vplabunets.github.io/goit-react-hw-05-movies_2/movies"
+            path="/goit-react-hw-05-movies_2/movies"
             element={<Movies />}
           />
           <Route>
             <Route
-              path="/vplabunets.github.io/goit-react-hw-05-movies_2/movies/:movieId"
+              path="/goit-react-hw-05-movies_2/movies/:movieId"
               element={<MovieDetails />}
             >
               <Route path="cast" element={<Cast />} />
