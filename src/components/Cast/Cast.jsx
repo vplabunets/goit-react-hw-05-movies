@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'api/apithemoviedb';
 import LayoutBox from 'components/Layout/Layout.styled';
 import { CastList, ActorPicture } from './Cast.styled';
-const img = 'https://via.placeholder.com/200x200/258DC8/E0F6FD';
-export const Cast = () => {
+const img =
+  'https://upload.wikimedia.org/wikipedia/en/b/b1/Portrait_placeholder.png';
+const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
   const params = useParams();
   useEffect(() => {
@@ -27,8 +28,6 @@ export const Cast = () => {
                     : img
                 }
                 alt={actor.original_name}
-                // width="200"
-                // height="250"
               ></ActorPicture>
               <p>{actor.original_name}</p>
               <p>Character: {actor.character}</p>
@@ -39,3 +38,5 @@ export const Cast = () => {
     </LayoutBox>
   );
 };
+
+export default Cast;

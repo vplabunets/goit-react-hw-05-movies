@@ -1,10 +1,10 @@
 import React from 'react';
-
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'api/apithemoviedb';
 import LayoutBox from 'components/Layout/Layout.styled';
-export const Reviews = () => {
+
+const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState(null);
   const params = useParams();
   useEffect(() => {
@@ -30,3 +30,5 @@ export const Reviews = () => {
     </LayoutBox>
   );
 };
+
+export default Reviews;

@@ -1,3 +1,4 @@
+import colors from 'utils/colors';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -10,24 +11,25 @@ export const Header = styled.header`
 
 export const NavItem = styled(NavLink)`
   display: flex;
-  width: auto;
+  font-size: 20px;
+  font-weight: bold;
+  width: 150px;
   align-items: center;
   padding: 10px;
-  border-radius: 4px;
-  color: black;
+  border-radius: 10px;
+  color: ${colors.maintextc};
   text-decoration: none;
   :first-child {
     margin-right: 10px;
   }
   &.active {
-    background-color: rgb(220, 71, 11);
-    color: #f7f7f7;
-
-    :hover:not(.active),
-    :focus-visible:not(.active) {
-      color: blue;
-      background-color: green;
-    }
+    background-color: ${colors.accentc};
+    color: ${colors.white};
+  }
+  &:hover:not(.active),
+  &:focus-visible:not(.active) {
+    color: ${colors.accentc};
+    background-color: ${colors.white};
   }
 `;
 
