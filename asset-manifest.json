@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/vplabunet.github.io/goit-react-hw-05-movies_2/static/css/main.7acaea2f.css",
-    "main.js": "/vplabunet.github.io/goit-react-hw-05-movies_2/static/js/main.07d3183d.js",
+    "main.css": "/vplabunet.github.io/goit-react-hw-05-movies_2/static/css/main.5a9dc95e.css",
+    "main.js": "/vplabunet.github.io/goit-react-hw-05-movies_2/static/js/main.83bb5198.js",
     "index.html": "/vplabunet.github.io/goit-react-hw-05-movies_2/index.html",
-    "main.7acaea2f.css.map": "/vplabunet.github.io/goit-react-hw-05-movies_2/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/vplabunet.github.io/goit-react-hw-05-movies_2/static/js/main.07d3183d.js.map"
+    "main.5a9dc95e.css.map": "/vplabunet.github.io/goit-react-hw-05-movies_2/static/css/main.5a9dc95e.css.map",
+    "main.83bb5198.js.map": "/vplabunet.github.io/goit-react-hw-05-movies_2/static/js/main.83bb5198.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.5a9dc95e.css",
+    "static/js/main.83bb5198.js"
   ]
 }
