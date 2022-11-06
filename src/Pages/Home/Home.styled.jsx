@@ -20,14 +20,10 @@ export const MoviesImg = styled.img`
 `;
 export const NavItem = styled(NavLink)`
   display: flex;
-
   flex-direction: column;
-
   font-size: 16px;
   font-weight: bold;
   width: auto;
-
-  /* padding: 10px; */
   border-radius: 10px;
   color: ${colors.maintextc};
   text-decoration: none;

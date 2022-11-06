@@ -1,10 +1,10 @@
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getTrendingMovies } from 'api/apithemoviedb';
+import imageplaceholders from 'utils/placeholders';
 import { MoviesWrap } from 'Pages/Movies/Movies.styled';
 import { NavItem, MoviesList, MoviesItem, MoviesImg } from './Home.styled';
-const img =
-  'https://catalog.osaarchivum.org/assets/thumbnail_placeholder_movie-480596e192e7043677f77cf78b13bdd1.jpg';
+
 const Home = () => {
   const location = useLocation();
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -28,7 +28,7 @@ const Home = () => {
                 src={
                   film.poster_path
                     ? `https://image.tmdb.org/t/p/w500${film.poster_path}`
-                    : img
+                    : imageplaceholders.movieImgPlacholder
                 }
                 alt={film.original_title}
               ></MoviesImg>

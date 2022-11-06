@@ -1,9 +1,11 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Outlet, Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getMoviesByName } from 'api/apithemoviedb';
+import imageplaceholders from 'utils/placeholders';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import {
   Button,
   CarouselWrap,
@@ -19,14 +21,15 @@ const Movies = () => {
   const [query, setQuery] = useState(null);
 
   const handleSubmit = e => {
+    if (e.currentTarget.elements.filmName.value === '') {
+      alert('Please input correct query');
+    }
     e.preventDefault();
     setQuery(e.currentTarget.elements.filmName.value);
     setSearchParams({ queryParam: e.currentTarget.elements.filmName.value });
     e.target.reset();
   };
-
-  const search = searchParams.get('queryParam') ?? '';
-
+  const search = searchParams.get('queryParam') ?? null;
   useEffect(() => {
     if (search) {
       setQuery(search);
@@ -34,9 +37,9 @@ const Movies = () => {
     if (!query) {
       return;
     }
+
     getMoviesByName(query).then(({ data }) => setByNameMovies(data.results));
   }, [query, searchParams, search]);
-
   return (
     <MoviesWrap>
       <div>
@@ -45,7 +48,22 @@ const Movies = () => {
           <Button type="submit"> Search</Button>
         </MovieForm>
       </div>
-
+      <div>
+        {query && (
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+        )}
+      </div>
       {byNameMovies && (
         <CarouselWrap>
           <Carousel width={400} dynamicHeight={true} verticalSwipe={'natural'}>
@@ -59,7 +77,11 @@ const Movies = () => {
                   <img
                     width={500}
                     height={600}
-                    src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+                    src={
+                      film.poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
+                        : imageplaceholders.movieImgPlacholder
+                    }
                     alt={film.title}
                   />
                   <p className="legend">{film.title}</p>
@@ -69,31 +91,9 @@ const Movies = () => {
           </Carousel>
         </CarouselWrap>
       )}
-
       <Outlet />
     </MoviesWrap>
   );
 };
 
 export default Movies;
-
-// {
-//   /* <ByNameMovieList>
-//   {byNameMovies &&
-//     byNameMovies.map(film => (
-//       <li key={film.id}>
-//         <Link
-//           id={film.id}
-//           to={`/movies/${film.id}`}
-//           state={{ from: location }}
-//         >
-//           <img
-//             // src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
-//             alt={film.title}
-//           />
-//           {film.title}
-//         </Link>
-//       </li>
-//     ))}
-// </ByNameMovieList>  */
-// }

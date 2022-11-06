@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 axios.defaults.baseURL = 'https://api.themoviedb.org/';
 
 export async function getTrendingMovies() {
@@ -25,7 +26,9 @@ export async function getMoviesByName(query) {
         include_adult: false,
       },
     });
-
+    if (response.data.results.length === 0) {
+      toast.error('Please input correct query');
+    }
     return response;
   } catch (error) {
     console.error(error);
@@ -40,7 +43,6 @@ export async function getMovieDetails(movie_id) {
         language: 'en-US',
       },
     });
-
     return response;
   } catch (error) {
     console.error(error);
@@ -55,7 +57,6 @@ export async function getMovieCast(movie_id) {
         language: 'en-US',
       },
     });
-
     return response;
   } catch (error) {
     console.error(error);
@@ -75,5 +76,3 @@ export async function getMovieReviews(movie_id) {
     console.error(error);
   }
 }
-
-// export default getMovieCast;

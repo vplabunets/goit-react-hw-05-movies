@@ -2,21 +2,26 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'api/apithemoviedb';
+import imageplaceholders from 'utils/placeholders';
+import { Loader } from 'utils/Loader/Loader';
 import LayoutBox from 'components/Layout/Layout.styled';
-import { CastList, ActorPicture } from './Cast.styled';
-const img =
-  'https://upload.wikimedia.org/wikipedia/en/b/b1/Portrait_placeholder.png';
+import { CastList, ActorPicture, CastText } from './Cast.styled';
+
 const Cast = () => {
+  const [isLoadingCast, setIsLoadingCast] = useState(true);
   const [movieCast, setMovieCast] = useState([]);
   const params = useParams();
   useEffect(() => {
+    setIsLoadingCast(true);
     getMovieCast(params.movieId).then(({ data }) => setMovieCast(data.cast));
+    setTimeout(setIsLoadingCast(false), 10000);
   }, [params]);
 
   return (
     <LayoutBox>
+      {isLoadingCast && <Loader />}
       {movieCast.length === 0 ? (
-        'There is no cast'
+        <CastText>There is no cast</CastText>
       ) : (
         <CastList>
           {movieCast.map(actor => (
@@ -25,12 +30,12 @@ const Cast = () => {
                 src={
                   actor.profile_path
                     ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
-                    : img
+                    : imageplaceholders.actorImgPlacholder
                 }
                 alt={actor.original_name}
               ></ActorPicture>
-              <p>{actor.original_name}</p>
-              <p>Character: {actor.character}</p>
+              <CastText>{actor.original_name}</CastText>
+              <CastText>Character: {actor.character}</CastText>
             </li>
           ))}
         </CastList>
