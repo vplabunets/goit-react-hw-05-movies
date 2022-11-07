@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieCast } from 'api/apiTheMovieDb1';
+import { getMovieCast } from 'api/apiTheMovieDb';
 import imageplaceholders from 'utils/placeholders';
 import { Loader } from 'utils/Loader/Loader';
 import LayoutBox from 'components/UI/Layout/Layout.styled';
