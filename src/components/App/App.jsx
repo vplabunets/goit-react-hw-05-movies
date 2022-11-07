@@ -3,10 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from '../UI/Layout/Layout';
 import AppWrap from './App.styled';
 
-const Home = lazy(() => import('../../Pages/Home/Home'));
-const Movies = lazy(() => import('../../Pages/Movies/Movies'));
+const Home = lazy(() => import('../../pages1/Home/Home'));
+const Movies = lazy(() => import('../../pages1/Movies/Movies'));
 const MovieDetails = lazy(() =>
-  import('../../Pages/MovieDetails/MovieDetails')
+  import('../../pages1/MovieDetails/MovieDetails')
 );
 const Cast = lazy(() => import('../Cast/Cast'));
 const Reviews = lazy(() => import('../Reviews/Reviews'));

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieReviews } from 'api/apiTheMovieDb';
+import { getMovieReviews } from 'api/apiTheMovieDb1';
 import LayoutBox from 'components/UI/Layout/Layout.styled';
 import { ReviewsText, ReviewsList } from './Reviews.styled';
 

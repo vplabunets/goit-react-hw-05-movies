@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
-import { getMovieDetails } from 'api/apiTheMovieDb';
+import { getMovieDetails } from 'api/apiTheMovieDb1';
 import { BiArrowBack } from 'react-icons/bi';
 import imageplaceholders from 'utils/placeholders';
 import {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation, useSearchParams } from 'react-router-dom';
-import { getMoviesByName } from 'api/apiTheMovieDb';
+import { getMoviesByName } from 'api/apiTheMovieDb1';
 import imageplaceholders from 'utils/placeholders';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
