@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getTrendingMovies } from 'api/apithemoviedb';
+import { getTrendingMovies } from 'api/apiTheMovieDb';
 import imageplaceholders from 'utils/placeholders';
-import { MoviesWrap } from 'Pages/Movies/Movies.styled';
+import { MoviesWrap } from 'pages/Movies/Movies.styled';
 import { NavItem, MoviesList, MoviesItem, MoviesImg } from './Home.styled';
 
 const Home = () => {

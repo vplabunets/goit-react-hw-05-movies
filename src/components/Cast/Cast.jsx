@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieCast } from 'api/apithemoviedb';
+import { getMovieCast } from 'api/apiTheMovieDb';
 import imageplaceholders from 'utils/placeholders';
 import { Loader } from 'utils/Loader/Loader';
-import LayoutBox from 'components/Layout/Layout.styled';
+import LayoutBox from 'components/UI/Layout/Layout.styled';
 import { CastList, ActorPicture, CastText } from './Cast.styled';
 
 const Cast = () => {

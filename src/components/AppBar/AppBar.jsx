@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from './AppBar.styled';
-import { NavItem } from './AppBar.styled';
+import { Header, NavItem } from './AppBar.styled';
+
 const AppBar = () => {
   return (
     <Header>

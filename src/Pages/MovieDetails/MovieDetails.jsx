@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
-import { getMovieDetails } from 'api/apithemoviedb';
+import { getMovieDetails } from 'api/apiTheMovieDb';
 import { BiArrowBack } from 'react-icons/bi';
 import imageplaceholders from 'utils/placeholders';
 import {
@@ -14,7 +14,7 @@ import {
   AddInfoBox,
   AddInfoTitle,
 } from './MovieDetails.styled';
-import LayoutBox from 'components/Layout/Layout.styled';
+import LayoutBox from 'components/UI/Layout/Layout.styled';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -58,10 +58,18 @@ const MovieDetails = () => {
       <LayoutBox>
         <AddInfoBox>
           <AddInfoTitle>Additional Information</AddInfoTitle>
-          <NavItem id={params.movieId} to={`cast`}>
+          <NavItem
+            id={params.movieId}
+            to={`cast`}
+            state={{ from: location.state?.from ?? '/' }}
+          >
             Cast
           </NavItem>
-          <NavItem id={params.movieId} to={`reviews`}>
+          <NavItem
+            id={params.movieId}
+            to={`reviews`}
+            state={{ from: location.state?.from ?? '/' }}
+          >
             Review
           </NavItem>
         </AddInfoBox>

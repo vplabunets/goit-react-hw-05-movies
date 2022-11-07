@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieReviews } from 'api/apithemoviedb';
-import LayoutBox from 'components/Layout/Layout.styled';
+import { getMovieReviews } from 'api/apiTheMovieDb';
+import LayoutBox from 'components/UI/Layout/Layout.styled';
 import { ReviewsText, ReviewsList } from './Reviews.styled';
 
 const Reviews = () => {
